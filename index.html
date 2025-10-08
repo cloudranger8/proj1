@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CloudRanger VTOL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f9f9f9; /* light background */
+    color: #222; /* dark text */
+    line-height: 1.6;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00aaff;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-links li a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #00aaff;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: #111;
+      width: 200px;
+      display: none;
+      padding: 1rem;
+    }
+
+    .nav-links.show {
+      display: flex;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+  }
+
+  header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #111, #222);
+    text-align: center;
+    padding: 0 2rem;
+    color: #f0f0f0;
+  }
+
+  header h1 {
+    font-size: 4rem;
+    margin: 0;
+    color: #00aaff;
+  }
+
+  header p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    max-width: 600px;
+  }
+
+  section {
+    padding: 4rem 2rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #00aaff;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  ul li {
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #00aaff;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .gallery img {
+    width: 280px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  .cta {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta a {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #00aaff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+
+  .cta a:hover {
+    background-color: #0088cc;
+  }
+</style>
+  
+    
+      
+     
+      
+    
+     
+   
+     
+   
+     
+      
+  
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">CloudRanger</div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#vision">Vision</a></li>
+      <li><a href="#technical">Technical</a></li>
+      <li><a href="#modular">Modularity</a></li>
+      <li><a href="#usecases">Use Cases</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>CloudRanger VTOL</h1>
+    <p>Agile. Scalable. Tactical. Built for real-world flight and hybrid mobility.</p>
+  </header>
+
+  <section id="about">
+    <h2>About CloudRanger</h2>
+    <p>CloudRanger is a concept-stage personal electric vehicle that merges ground transportation with vertical takeoff and landing (VTOL) capabilities...</p>
+    <ul>
+      <li>Expandable wings that fold during ground mode and extend in flight</li>
+      <li>Electric hub motors for road propulsion</li>
+      <li>A rear-mounted pusher propeller for forward flight</li>
+      <li>Four VTOL propellers for vertical lift and hover stability</li>
+    </ul>
+  </section>
+
+  <section id="vision">
+    <h2>Vision</h2>
+    <p>CloudRanger is built for a future where personal aerial mobility is not a luxury — but a practical, scalable solution...</p>
+    <div style="text-align:center; margin-top:2rem;">
+      <img src="images/flying.jpg" alt="Flying Mode" style="width:100%; max-width:600px; border-radius:12px;">
+    </div>
+  </section>
+
+  <section id="technical">
+    <h2>Technical Overview</h2>
+    <p>CloudRanger is a dual-mode electric vehicle engineered for both ground travel and vertical flight...</p>
+    <ul>
+      <li>Drivable chassis: Equipped with electric hub motors</li>
+      <li>VTOL lift system: Four vertical propellers</li>
+      <li>Forward flight: A rear-mounted pusher propeller</li>
+      <li>Expandable wings: Fold and extend automatically</li>
+      <li>Flight control: Autonomous or semi-autonomous</li>
+      <li>Power system: Modular battery packs</li>
+      <li>Frame: Lightweight composite structure</li>
+    </ul>
+    <div style="text-align:center; margin-top:2rem;">
+      <img src="images/ground.jpg" alt="Ground Mode - Folded Wings" style="width:100%; max-width:600px; border-radius:12px;">
+    </div>
+  </section>
+
+  <section id="modular">
+    <h2>Modular Architecture</h2>
+    <p>CloudRanger is designed with modularity at its core — enabling rapid iteration, simplified maintenance, and scalable deployment...</p>
+    <ul>
+      <li>Propulsion modules: VTOL and ground motors in pods</li>
+      <li>Wing assembly: Foldable wings with pivot mounts</li>
+      <li>Battery packs: Hot-swappable and configurable</li>
+      <li>Control systems: Redundant flight and drive controllers</li>
+      <li>Sensor suite: Modular mounts for cameras, LIDAR</li>
+      <li>Chassis frame: Lightweight skeleton with mounting points</li>
+    </ul>
+    <div style="text-align:center; margin-top:2rem;">
+      <img src="images/open_wings.jpg" alt="Flight Mode - Open Wings" style="width:100%; max-width:600px; border-radius:12px;">
+    </div>
+  </section>
+
+  <section id="usecases">
+    <h2>Use Cases</h2>
+    <p>CloudRanger is designed for environments where agility, autonomy, and hybrid mobility are mission-critical...</p>
+    <ul>
+      <li>Defense & Tactical Operations</li>
+      <li>Disaster Response</li>
+      <li>Rural Connectivity</li>
+      <li>Urban Mobility</li>
+      <li>Research & Prototyping</li>
+    </ul>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
+    }
+  </script>
+ <section id="contact" style="padding: 4rem 2rem; max-width: 600px; margin: auto;">
+  <h2>Contact Us</h2>
+  <p>If you're interested in partnerships, prototyping, or field trials — we'd love to hear from you.</p>
+
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=telecom55@gmail.com&su=CloudRanger Inquiry&body=Please include your name and email so we can follow up:"
+     target="_blank"
+     style="display: inline-block; margin-top: 2rem; padding: 1rem 2rem; background-color: #00aaff; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">
+     Send Message
+  </a>
+
+  <p style="margin-top: 1rem; font-size: 0.9rem; color: #aaa;">
+    This opens Gmail in a new tab. If it doesn’t work, just email us directly at 
+    <a href="mailto:telecom55@gmail.com" style="color:#00aaff;">telecom55@gmail.com</a>.
+  </p>
+</section>
+  </a>
+
+  
+</section>
+  
+</section> 
+  
+
+  
+ 
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Stop default form submission
+
+    const formData = {
+      name: this.name.value,
+      email: this.email.value,
+      message: this.message.value
+    };
+
+    fetch('https://your-backend-endpoint.com/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      if (response.ok) {
+        alert('Message sent successfully!');
+        this.reset();
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Error sending message.');
+    });
+  });
+</script>
+</html>
